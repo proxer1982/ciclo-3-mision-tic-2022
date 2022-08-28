@@ -10,9 +10,18 @@ public class Usuario {
     private String correo;
     private String pass;
     private Rol rol;
+    private Perfil perfil;
     private boolean estado;
 
     public Usuario() {
+    }
+
+    public Perfil getPerfil() {
+        return perfil;
+    }
+
+    public void setPerfil(Perfil perfil) {
+        this.perfil = perfil;
     }
 
     public long getIdUsuario() {
@@ -98,6 +107,7 @@ public class Usuario {
                 ", correo='" + correo + '\'' +
                 ", pass='" + pass + '\'' +
                 ", rol=" + rol +
+                ", perfil=" + perfil +
                 ", estado=" + estado +
                 '}';
     }
