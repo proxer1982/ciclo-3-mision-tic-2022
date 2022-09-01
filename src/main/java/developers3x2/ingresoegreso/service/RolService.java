@@ -6,8 +6,12 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Clase para la la solicitud de llamados de rol
+ */
 @Service
 public class RolService implements IRolService{
+
     @Override
     public Rol findById(int id) {
         Rol rol = new Rol();
