@@ -1,16 +1,33 @@
-package developers3x2.ingresoegreso.entity;
+package developers3x2.ingresoegreso.entities;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="usuarios")
 public class Usuario {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_usuario", nullable = false)
     private long idUsuario;
+    @Column(name = "nombre", nullable = false)
     private String nombre;
+    @Column(name = "apellido", nullable = false)
     private String apellido;
+    @ManyToOne
+    @JoinColumn(name = "id_tipo_documento")
     private TipoDocumento tipoDocumento;
+    @Column(name = "cedula")
     private String cedula;
+    @Column(name = "correo", nullable = false)
     private String correo;
+    @Column(name = "pass", nullable = false)
     private String pass;
+    @ManyToOne
+    @JoinColumn(name = "id_rol")
     private Rol rol;
+    @Column(name = "perfil")
     private Perfil perfil;
+    @Column(name = "estado", nullable = false)
     private boolean estado;
 
     public Usuario() {

@@ -1,11 +1,10 @@
 package developers3x2.ingresoegreso.controller;
 
-import developers3x2.ingresoegreso.entity.*;
+import developers3x2.ingresoegreso.entities.*;
 import developers3x2.ingresoegreso.service.ITipoDocumentoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -25,13 +24,13 @@ public class TipoDocumentoRestController {
     }
 
     @PostMapping("/tipoDocumento")
-    public TipoDocumento createRol(@RequestBody Rol rol){
-        return tipoDocumentoService.createRol(rol);
+    public TipoDocumento createRol(@RequestBody TipoDocumento doc){
+        return tipoDocumentoService.createRol(doc);
     }
 
     @PutMapping("/tipoDocumento/{id}")
-    public TipoDocumento updateRol(@PathVariable int id,@RequestBody TipoDocumento rol){
-        return tipoDocumentoService.updateRol(id, rol);
+    public TipoDocumento updateRol(@PathVariable int id,@RequestBody TipoDocumento doc){
+        return tipoDocumentoService.updateRol(id, doc);
     }
 
     @DeleteMapping("/tipoDocumento/{id}")

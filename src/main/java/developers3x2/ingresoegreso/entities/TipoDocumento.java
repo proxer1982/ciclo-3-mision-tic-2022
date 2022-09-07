@@ -1,9 +1,19 @@
-package developers3x2.ingresoegreso.entity;
+package developers3x2.ingresoegreso.entities;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "tipos_documento")
 public class TipoDocumento {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_tipo_documento", nullable = false)
     private long idTipoDocumento;
+    @Column(name = "descripcion")
     private String descripcion;
+    @Column(name = "siglas")
     private String siglas;
+    @Column(name = "estado")
     private boolean estado;
 
     public TipoDocumento() {

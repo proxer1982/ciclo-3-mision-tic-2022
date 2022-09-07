@@ -1,66 +1,45 @@
 package developers3x2.ingresoegreso.service;
 
-import developers3x2.ingresoegreso.entity.Rol;
+import developers3x2.ingresoegreso.entities.Rol;
+import developers3x2.ingresoegreso.repositories.IRolRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Clase para la la solicitud de llamados de rol
  */
 @Service
 public class RolService implements IRolService{
-
+    @Autowired
+    private IRolRepository rolRepository;
     @Override
     public Rol findById(int id) {
-        Rol rol = new Rol();
-        rol.setIdRol(id);
-        rol.setDescripcion("Administrador");
-        rol.setEstado(true);
+        Optional<Rol> roles = rolRepository.findById((long) id);
 
-        return rol;
+        return roles.get();
     }
 
     @Override
     public List<Rol> findAll(){
-        List<Rol> roles = new ArrayList<Rol>();
-        Rol rol1 = new Rol();
-        rol1.setIdRol(1);
-        rol1.setDescripcion("Administrador");
-        rol1.setEstado(true);
-
-        Rol rol2 = new Rol();
-        rol2.setIdRol(2);
-        rol2.setDescripcion("User");
-        rol2.setEstado(true);
-
-        roles.add(rol1);
-        roles.add(rol2);
+        List<Rol> roles = (List<Rol>) rolRepository.findAll();
         return roles;
     }
 
     @Override
     public Rol createRol(Rol rol){
-        Rol newRol = new Rol();
-        newRol.setIdRol(3);
-        newRol.setDescripcion(rol.getDescripcion());
-        newRol.setEstado(rol.isEstado());
-
-        return newRol;
+        return rolRepository.save(rol);
     }
 
     @Override
     public Rol updateRol(int id, Rol rol){
-        Rol putRol = findById(id);
-        putRol.setDescripcion(rol.getDescripcion());
-        putRol.setEstado(rol.isEstado());
-
-        return putRol;
+        return rolRepository.save(rol);
     }
 
     @Override
     public void deleteRol(int id){
-        Rol putRol = findById(id);
+        rolRepository.deleteById((long) id);
     }
 }

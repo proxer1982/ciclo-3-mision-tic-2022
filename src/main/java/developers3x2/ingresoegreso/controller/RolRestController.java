@@ -1,11 +1,10 @@
 package developers3x2.ingresoegreso.controller;
 
-import developers3x2.ingresoegreso.entity.Rol;
+import developers3x2.ingresoegreso.entities.Rol;
 import developers3x2.ingresoegreso.service.IRolService;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController

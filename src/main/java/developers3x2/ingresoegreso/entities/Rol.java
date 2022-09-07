@@ -1,8 +1,16 @@
-package developers3x2.ingresoegreso.entity;
+package developers3x2.ingresoegreso.entities;
 
+import javax.persistence.*;
+@Entity
+@Table(name="roles")
 public class Rol {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_rol", nullable = false)
     private long idRol;
+    @Column(name = "descripcion")
     private String descripcion;
+    @Column(name = "estado", nullable = false)
     private boolean estado;
 
     public Rol() {

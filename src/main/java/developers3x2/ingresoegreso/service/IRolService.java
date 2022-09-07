@@ -1,6 +1,6 @@
 package developers3x2.ingresoegreso.service;
 
-import developers3x2.ingresoegreso.entity.Rol;
+import developers3x2.ingresoegreso.entities.Rol;
 
 import java.util.List;
 
